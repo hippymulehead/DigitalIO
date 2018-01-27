@@ -6,7 +6,6 @@ DigitalOut::DigitalOut(int pinNumber, int value) {
     pinMode(pin,OUTPUT);
     state = value;
     directWrite(pin, state);
-
 }
 
 DigitalOut::~DigitalOut() {
