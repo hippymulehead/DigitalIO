@@ -5,6 +5,13 @@ DigitalOut::DigitalOut(int pinNumber, byte value) {
     pin = pinNumber;
     pinMode(pin,OUTPUT);
     state = value;
+    if (pin < 8) {
+        b = pin;
+        p = 0;
+    } else {
+        b = pin - 8;
+        p = 1;
+    }
     directWrite(pin, state);
 }
 
