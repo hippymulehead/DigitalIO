@@ -1,7 +1,7 @@
 #include "DigitalOut.h"
 #include <Arduino.h>
 
-DigitalOut::DigitalOut(int pinNumber, int value) {
+DigitalOut::DigitalOut(int pinNumber, byte value) {
     pin = pinNumber;
     pinMode(pin,OUTPUT);
     state = value;
@@ -11,7 +11,7 @@ DigitalOut::DigitalOut(int pinNumber, int value) {
 DigitalOut::~DigitalOut() {
 }
 
-DigitalOut DigitalOut::operator= (int s) {
+DigitalOut DigitalOut::operator= (byte s) {
     state = s;
     directWrite(pin, state);
     return *this;
