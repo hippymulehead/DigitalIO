@@ -523,6 +523,7 @@
 			<Add directory="/home/mromans/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/4.9.2/include" />
 			<Add directory="/home/mromans/.platformio/packages/tool-unity" />
 		</Compiler>
+		<Unit filename="README.md" />
 		<Unit filename="lib/DigitalIO/DigitalIO.h" />
 		<Unit filename="lib/DigitalIO/DigitalOut.cpp" />
 		<Unit filename="lib/DigitalIO/DigitalOut.h" />
