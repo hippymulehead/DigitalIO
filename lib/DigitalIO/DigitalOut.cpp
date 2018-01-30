@@ -30,7 +30,3 @@ int DigitalOut::operator! () const {
 DigitalOut::operator int() const {
     return state;
 }
-
-void DigitalOut::write(int value) {
-    bitWrite(*port, pin, value);
-}

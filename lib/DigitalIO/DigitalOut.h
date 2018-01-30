@@ -25,12 +25,11 @@ class DigitalOut {
         DigitalOut operator= (int s);
         int operator! () const;
         operator int() const;
-        void write(int value);
-        int state;
 
     protected:
         int pin;
         volatile unsigned char *port;
+        int state;
 
     private:
 };
