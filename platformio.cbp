@@ -23,6 +23,7 @@
 				<Option run_host_application_in_terminal="1" />
 				<Compiler>
 					<Add directory="lib/DigitalOut" />
+					<Add directory="lib/DigitalIO" />
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/local/bin/platformio -f -c codeblocks run" />
@@ -41,6 +42,7 @@
 				<Option run_host_application_in_terminal="1" />
 				<Compiler>
 					<Add directory="lib/DigitalOut" />
+					<Add directory="lib/DigitalIO" />
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/local/bin/platformio -f -c codeblocks run" />
@@ -525,6 +527,8 @@
 		</Compiler>
 		<Unit filename="README.md" />
 		<Unit filename="lib/DigitalIO/DigitalIO.h" />
+		<Unit filename="lib/DigitalIO/DigitalIn.cpp" />
+		<Unit filename="lib/DigitalIO/DigitalIn.h" />
 		<Unit filename="lib/DigitalIO/DigitalOut.cpp" />
 		<Unit filename="lib/DigitalIO/DigitalOut.h" />
 		<Unit filename="platformio.ini" />

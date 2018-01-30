@@ -1,33 +1,36 @@
-# MBed style DigitalIO for Arduino.
+# Fast and easy DigitalIO for Arduino.
 
-Currently DigitalOut is written and working.  It uses direct port manipulation under the hood but only deals with PORTD & PORTB so it works on Uno and Nano styled boards.
+DigitalIO makes it simple and fast.  It uses direct port manipulation under the hood but only deals with PORTD & PORTB so it works on Uno and Nano styled boards.
 
-Useage:
+Usage:
+
+## DigitalOut:
 
 To define a new DigitalOut  
-    DigitalOut led1(13,0); // That's pin to do the DigitalIO on and the initial value.  No more setup is needed.
+    **DigitalOut led1(13,0);** // That's pin to do the DigitalIO on and the initial value.  No more setup is needed.
 
 To set the pin high  
-    led1 = HIGH;
+    **led1 = HIGH;**
 
 To set the pin low  
-    led1 = LOW;
+    **led1 = LOW;**
 
 To invert the pin  
-    led1 = !led1;
+    **led1 = !led1;**
     
 To copy the state of a pin to another pin
-	led1 = led2;
+	**led1 = led2;**
 
-Per request you can also use led1.state to get the state of the pin.
+## DigitalIn:
+
+To define a new DigitalIn
+	**DigitalIn button1(5);**  // The pin to read from;
+	
+To read simply call
+	**myvar = button1;**
 
 ---
-
-You can also do a direct write without using the internal state by doing the following
-    led1.write(HIGH);
-
----
-Blinky from MBed
+**Blinky from MBed**
 
 ```
 #include <Arduino.h>   
@@ -41,5 +44,24 @@ void setup() {
 void loop() {
     led1 = !led1;
     delay(100);
+}
+```
+
+---
+
+**Read a button and assign it to an LED.**
+
+```
+#include <Arduino.h>   
+#include <DigitalIO.h>
+    
+DigitalOut led1(13,0);
+DigitalIn button1(5);
+
+void setup() {
+}
+
+void loop() {
+    led1 = button1;
 }
 ```
