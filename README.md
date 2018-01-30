@@ -24,7 +24,7 @@ You can also do a direct write without using the internal state by doing the fol
     led1.write(HIGH);
 
 -------------
-//Blinky from MBed
+`//Blinky from MBed
 #include <Arduino.h>
 #include <DigitalIO.h>
 
@@ -36,4 +36,4 @@ void setup() {
 void loop() {
     led1 = !led1;
     delay(100);
-}
+}`
