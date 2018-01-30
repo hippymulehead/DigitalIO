@@ -21,13 +21,13 @@ class DigitalOut {
         DigitalOut(int pinNumber, int value);
         virtual ~DigitalOut();
         DigitalOut operator= (int s);
-        DigitalOut operator! ();
+        int operator! () const;
         void write(int value);
         int state;
 
     protected:
         int pin;
-        unsigned char *port;
+        volatile unsigned char *port;
 
     private:
 };

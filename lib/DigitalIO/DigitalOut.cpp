@@ -23,10 +23,10 @@ DigitalOut DigitalOut::operator= (int s) {
     return *this;
 }
 
-DigitalOut DigitalOut::operator! () {
-    state = !state;
-    bitWrite(*port, pin, state);
-    return *this;
+int DigitalOut::operator! () const {
+    //state = !state;
+    //bitWrite(*port, pin, state);
+    return !state;
 }
 
 void DigitalOut::write(int value) {
