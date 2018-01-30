@@ -12,6 +12,8 @@ Pin Control
     led1 = !led1 // inverts pin 13
 Viewing State
     Serial.print(led1.state);
+You can also use led1.write(value) to bypass the internal state
+saving and just use it as a replacement for digitalWrite().
 */
 
 class DigitalOut {
