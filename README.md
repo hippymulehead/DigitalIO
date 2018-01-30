@@ -2,7 +2,7 @@
 
 Currently DigitalOut is written and working.  It uses direct port manipulation under the hood but only deals with PORTD & PORTB so it works on Uno and Nano styled boards.
 
-Useage:
+Usage:
 
 To define a new DigitalOut  
     DigitalOut led1(13,0); // That's pin to do the DigitalIO on and the initial value.  No more setup is needed.
@@ -15,6 +15,9 @@ To set the pin low
 
 To invert the pin  
     led1 = !led1;
+    
+To copy the state of a pin to another pin
+	led1 = led2;
 
 Per request you can also use led1.state to get the state of the pin.
 
