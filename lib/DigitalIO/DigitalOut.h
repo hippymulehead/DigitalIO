@@ -16,29 +16,16 @@ Viewing State
 
 class DigitalOut {
     public:
-        DigitalOut(int pinNumber, byte value);
+        DigitalOut(int pinNumber, int value);
         virtual ~DigitalOut();
-        DigitalOut operator= (byte s);
+        DigitalOut operator= (int s);
         DigitalOut operator! ();
-        byte state;
-
-        void directWrite(int pinNumber, byte value) {
-            switch(p) {
-                case 0: {
-                    bitWrite(PORTD,p,value);
-                    break;
-                }
-                case 1: {
-                    bitWrite(PORTB, p, value);
-                    break;
-                }
-            }
-        }
+        void write(int value);
+        int state;
 
     protected:
-        int         pin;
-        int         b;
-        int         p;
+        int pin;
+        unsigned char *port;
 
     private:
 };

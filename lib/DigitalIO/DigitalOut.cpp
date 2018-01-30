@@ -1,31 +1,34 @@
 #include "DigitalOut.h"
 #include <Arduino.h>
 
-DigitalOut::DigitalOut(int pinNumber, byte value) {
-    pin = pinNumber;
-    pinMode(pin,OUTPUT);
+DigitalOut::DigitalOut(int pinNumber, int value) {
+    pinMode(pinNumber,OUTPUT);
     state = value;
-    if (pin < 8) {
-        b = pin;
-        p = 0;
+    if (pinNumber < 8) {
+        port = &PORTD;
+        pin = pinNumber;
     } else {
-        b = pin - 8;
-        p = 1;
+        port = &PORTB;
+        pin = pinNumber - 8;
     }
-    directWrite(pin, state);
+    bitWrite(*port, pin, state);
 }
 
 DigitalOut::~DigitalOut() {
 }
 
-DigitalOut DigitalOut::operator= (byte s) {
+DigitalOut DigitalOut::operator= (int s) {
     state = s;
-    directWrite(pin, state);
+    bitWrite(*port, pin, state);
     return *this;
 }
 
 DigitalOut DigitalOut::operator! () {
     state = !state;
-    directWrite(pin, state);
+    bitWrite(*port, pin, state);
     return *this;
+}
+
+void DigitalOut::write(int value) {
+    bitWrite(*port, pin, value);
 }
