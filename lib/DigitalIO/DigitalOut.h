@@ -11,7 +11,11 @@ Pin Control
     led1 = HIGH // Sets pin 13 to high
     led1 = !led1 // inverts pin 13
 Viewing State
-    Serial.print(led1.state);
+    tempint = led1;
+Copy state from pin to pin
+    led1 = led2;
+You can also use led1.write(value) to bypass the internal state
+saving and just use it as a replacement for digitalWrite().
 */
 
 class DigitalOut {
@@ -19,13 +23,13 @@ class DigitalOut {
         DigitalOut(int pinNumber, int value);
         virtual ~DigitalOut();
         DigitalOut operator= (int s);
-        DigitalOut operator! ();
-        void write(int value);
-        int state;
+        int operator! () const;
+        operator int() const;
 
     protected:
         int pin;
-        unsigned char *port;
+        volatile unsigned char *port;
+        int state;
 
     private:
 };
