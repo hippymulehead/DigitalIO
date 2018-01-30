@@ -1,4 +1,4 @@
-# MBed style DigitalIO for Arduino.
+#MBed style DigitalIO for Arduino.
 
 Currently DigitalOut is written and working.  It uses direct port manipulation under the hood but only deals with PORTD & PORTB so it works on Uno and Nano styled boards.
 
