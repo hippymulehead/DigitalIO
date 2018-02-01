@@ -1,5 +1,7 @@
 #include <Arduino.h>
 #include <DigitalIO.h>
+// Because Arduino doesn't do this automagicly
+#define BOARD NANO
 
 // Define a pair of DigitalOut objects for testing
 DigitalOut led1(13,0);
