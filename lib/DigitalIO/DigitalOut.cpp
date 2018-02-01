@@ -3,7 +3,7 @@
 
 DigitalOut::DigitalOut(int pinNumber, int value) {
     pinMode(pinNumber,OUTPUT);
-    state = value;
+    m_state = value;
     if (pinNumber < 8) {
         port = &PORTD;
         pin = pinNumber;
@@ -11,22 +11,14 @@ DigitalOut::DigitalOut(int pinNumber, int value) {
         port = &PORTB;
         pin = pinNumber - 8;
     }
-    bitWrite(*port, pin, state);
+    bitWrite(*port, pin, m_state);
 }
 
 DigitalOut::~DigitalOut() {
 }
 
-DigitalOut DigitalOut::operator= (int s) {
-    state = s;
-    bitWrite(*port, pin, state);
-    return *this;
-}
-
-int DigitalOut::operator! () const {
-    return !state;
-}
-
-DigitalOut::operator int() const {
-    return state;
+int DigitalOut::operator= (int s) {
+    m_state = s;
+    bitWrite(*port, pin, m_state);
+    return m_state;
 }

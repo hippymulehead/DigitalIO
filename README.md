@@ -17,17 +17,20 @@ To set the pin low
 
 To invert the pin  
     **led1 = !led1;**
-    
+
 To copy the state of a pin to another pin
-	**led1 = led2;**
+	**led1 = led2.state();**
 
 ## DigitalIn:
 
 To define a new DigitalIn
 	**DigitalIn button1(5);**  // The pin to read from;
-	
+
 To read simply call
 	**myvar = button1;**
+
+To assign to a DigitalOut
+    **led1 = button1.state();**
 
 ---
 **Blinky from MBed**
@@ -35,7 +38,7 @@ To read simply call
 ```
 #include <Arduino.h>   
 #include <DigitalIO.h>
-    
+
 DigitalOut led1(13,0);
 
 void setup() {
@@ -54,7 +57,7 @@ void loop() {
 ```
 #include <Arduino.h>   
 #include <DigitalIO.h>
-    
+
 DigitalOut led1(13,0);
 DigitalIn button1(5);
 
@@ -62,6 +65,6 @@ void setup() {
 }
 
 void loop() {
-    led1 = button1;
+    led1 = button1.state();
 }
 ```
