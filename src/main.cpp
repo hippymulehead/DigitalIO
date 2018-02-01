@@ -12,6 +12,5 @@ void loop() {
     led1 = !led1;
     Serial.println(led1);
     led2 = !led1.state();
-//    led2 = button1;
     delay(100);
 }
