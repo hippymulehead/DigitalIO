@@ -3,16 +3,27 @@
 
 // Constructor
 DigitalIn::DigitalIn(int pinNumber) {
-    // FIXME sets up the pin for reading
-    pinMode(pinNumber,INPUT);
-    // Creates a pointer to the port and sets up the bit number to read from
-    if (pinNumber < 8) {
-        port = &PORTD;
-        pin = pinNumber;
-    } else {
-        port = &PORTB;
-        pin = pinNumber - 8;
+    // Mega type baords
+    #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
+    // Nano & Uno type baords
+    #elif defined(__AVR_ATmega328P__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__)
+    m_mod = pinNumber / 8;
+    m_rem = pinNumber % 8;
+    switch (m_mod) {
+        case 0: {
+            port = &PORTD;
+            pm = &DDRD;
+            break;
+        }
+        case 1: {
+            port = &PORTB;
+            pm = &DDRB;
+            break;
+        }
     }
+    #endif
+    // Direct set the pin mode to be writeable
+    bitWrite(*pm, m_rem, 0);
 }
 
 DigitalIn::~DigitalIn() {

@@ -1,6 +1,11 @@
 Fast and easy DigitalIO for Arduino.
 
-DigitalIO makes it simple and fast.  It uses direct port manipulation under the hood but only deals with PORTD & PORTB so it works on Uno and Nano styled boards.
+DigitalIO makes it simple and fast.
+The code is in place to support more boards but needs fleshed out.
+
+Supported boards...
+    Uno
+    Nano
 
 Usage:
 
@@ -19,7 +24,7 @@ To invert the pin
     led1 = !led1;
 
 To copy the state of a pin to another pin
-	led1 = led2.state();
+	led1 = led2.read();
 
 DigitalIn:
 
@@ -30,7 +35,7 @@ To read simply call
 	int myvar = button1;
 
 To assign to a DigitalOut
-led1 = button1.state();
+led1 = button1.read();
 
 ---
 Blinky from MBed
@@ -65,6 +70,6 @@ void setup() {
 }
 
 void loop() {
-    led1 = button1.state();
+    led1 = button1.read();
 }
 ```
