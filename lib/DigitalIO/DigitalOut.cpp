@@ -11,8 +11,16 @@ DigitalOut::DigitalOut(int pinNumber, int value) {
     m_mod = pinNumber / 8;
     m_rem = pinNumber % 8;
     switch (m_mod) {
-        case 0: {port = &PORTD; pm = &DDRD; break;}
-        case 1: {port = &PORTB; pm = &DDRB; break;}
+        case 0: {
+            port = &PORTD;
+            pm = &DDRD;
+            break;
+        }
+        case 1: {
+            port = &PORTB;
+            pm = &DDRB;
+            break;
+        }
     }
     #endif
     // Direct set the pin mode to be writeable

@@ -15,14 +15,14 @@ class DigitalOut {
         operator int() const {return m_state;}
         // Returns the state of the pin
         int read() {return m_state;}
-        int m_mod;
-        int m_rem;
 
     protected:
 
         volatile unsigned char *port;
         volatile unsigned char *pm;
         int m_state;
+        int m_mod;
+        int m_rem;
 
     private:
 };
