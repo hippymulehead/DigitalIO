@@ -1,24 +1,19 @@
 #ifndef DIGITALIN_H
 #define DIGITALIN_H
+#include <Arduino.h>
 
-// Sets up the DigitalIn object
 class DigitalIn
 {
     public:
-        // Constructor
         DigitalIn(int pinNumber);
         virtual ~DigitalIn();
-        // Returns the state as an int.
-        operator int() const {return bitRead(*port,pin);}
-        // Returns the state to be coppied to a DigitalOut
-        int read() {return bitRead(*port,pin);}
+        operator int() const;
+        int read();
 
     protected:
-        int pin;
-        volatile unsigned char *port;
-        volatile unsigned char *pm;
-        int m_mod;
-        int m_rem;
+        uint8_t m_timer;
+        uint8_t m_bit;
+        uint8_t m_port;
 
     private:
 };

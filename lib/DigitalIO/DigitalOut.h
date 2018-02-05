@@ -4,25 +4,18 @@
 
 class DigitalOut {
     public:
-        // Constructor
         DigitalOut(int pinNumber, int value);
         virtual ~DigitalOut();
-        // Overriding = for simplicity
         int operator = (int s);
-        // Overriding not for simplicity
         int operator ! () const {return !m_state;}
-        // Returns an int when one is being asked for
         operator int() const {return m_state;}
-        // Returns the state of the pin
         int read() {return m_state;}
 
     protected:
-
-        volatile unsigned char *port;
-        volatile unsigned char *pm;
         int m_state;
-        int m_mod;
-        int m_rem;
+    	uint8_t m_bit;
+    	uint8_t m_port;
+        volatile uint8_t *m_out;
 
     private:
 };

@@ -1,11 +1,10 @@
 Fast and easy DigitalIO for Arduino.
 
-DigitalIO makes it simple and fast.
-The code is in place to support more boards but needs fleshed out.
+DigitalIO sets up ins and outs as objects so the setup code from digitalWrite and digitalRead only has to be done once.
+The way the code works is functionally like the DigitalOut DigitalIn from MBED.
+This increases the speed of the calls by a lot!
 
-Supported boards...
-    Uno
-    Nano
+All boards supported by Arduino ahouls now be working.
 
 Usage:
 
